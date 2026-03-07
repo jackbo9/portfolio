@@ -1,0 +1,232 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tangity Tribe - Case Study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#f5f3ef; --fg:#1a1916; --fg-muted:#7f7b75; --line:rgba(26,25,22,0.12); --font-display:'Syne',sans-serif; --font-serif:'Cormorant Garamond',serif; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:var(--fg); font-family:var(--font-display); line-height:1.65; cursor:none; overflow-x:hidden; }
+  .wrap { max-width:980px; margin:0 auto; padding:32px 28px 80px; position:relative; z-index:1; }
+  .top { display:flex; justify-content:space-between; align-items:center; margin-bottom:44px; }
+  .back { text-decoration:none; color:var(--fg-muted); font-size:13px; letter-spacing:0.08em; text-transform:uppercase; }
+  .back:hover { color:var(--fg); }
+  .hero-title { font-size:clamp(38px,7vw,82px); letter-spacing:-0.03em; line-height:0.98; }
+  .hero-sub { margin-top:16px; font-family:var(--font-serif); font-style:italic; font-size:clamp(21px,3.2vw,31px); color:var(--fg-muted); max-width:760px; }
+  .meta { margin-top:28px; display:flex; gap:10px; flex-wrap:wrap; }
+  .tag { border:1px solid var(--line); padding:6px 12px; font-size:12px; color:var(--fg-muted); }
+  .section { margin-top:56px; border-top:1px solid var(--line); padding-top:24px; }
+  .section h2 { font-size:13px; letter-spacing:0.12em; text-transform:uppercase; color:var(--fg-muted); margin-bottom:12px; }
+  .summary { margin-top:14px; font-size:18px; max-width:860px; }
+  .image-frame { margin-top:16px; border:1px solid var(--line); border-radius:10px; overflow:hidden; background:#ece8df; }
+  .image-frame img { display:block; width:100%; height:auto; }
+  .image-note { padding:10px 12px; font-size:12px; color:var(--fg-muted); border-top:1px solid var(--line); background:#f8f6f2; }
+  .details-block { margin-top:18px; border:1px solid var(--line); border-radius:10px; overflow:hidden; background:#faf8f4; }
+  .details-block > summary { list-style:none; cursor:pointer; padding:12px 14px; font-size:12px; text-transform:uppercase; letter-spacing:0.12em; color:var(--fg-muted); border-bottom:1px solid transparent; }
+  .details-block[open] > summary { border-bottom-color:var(--line); }
+  .details-inner { padding:14px; }
+  .gallery { margin-top:12px; display:grid; grid-template-columns:1fr; gap:14px; }
+  @media (min-width:760px) { .gallery { grid-template-columns:1fr 1fr; } .shot-wide { grid-column:1 / -1; } }
+  .cursor {
+    width: 8px; height: 8px;
+    background: var(--fg);
+    border-radius: 50%;
+    position: fixed; top: 0; left: 0;
+    pointer-events: none; z-index: 9999;
+    transform: translate(-50%, -50%);
+  }
+  .cursor-ring {
+    width: 28px; height: 28px;
+    border: 1px solid var(--fg);
+    border-radius: 50%;
+    position: fixed; top: 0; left: 0;
+    pointer-events: none; z-index: 9998;
+    opacity: 0.35;
+    transition: width 0.2s, height 0.2s, opacity 0.2s;
+  }
+  .case-hero-bg {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .case-bg-word {
+    position: absolute;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 300;
+    color: var(--fg);
+    opacity: 0.05;
+    will-change: transform;
+    user-select: none;
+  }
+  .cbw1 { top: 8%; right: -2%; font-size: clamp(54px, 10vw, 120px); }
+  .cbw2 { top: 46%; left: 1%; font-size: clamp(36px, 6vw, 86px); opacity: 0.04; }
+  .cbw3 { bottom: 10%; right: 6%; font-size: clamp(30px, 5vw, 72px); opacity: 0.035; }
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (pointer: coarse), (max-width: 960px) {
+    body { cursor: auto; }
+    .cursor, .cursor-ring { display: none; }
+  }
+</style>
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+  <div class="case-hero-bg" aria-hidden="true">
+    <span class="case-bg-word cbw1" data-speed="0.16">Case Study</span>
+    <span class="case-bg-word cbw2" data-speed="0.22">Research</span>
+    <span class="case-bg-word cbw3" data-speed="0.12">Design</span>
+  </div>
+  <main class="wrap">
+    <div class="top">
+      <a class="back" href="index.html#work">Back to Home</a>
+      <span class="back">Case Study 04</span>
+    </div>
+
+    <h1 class="hero-title">Tangity Tribe</h1>
+    <p class="hero-sub">Employee onboarding ritual for NTT Data / Tangity</p>
+
+    <div class="meta">
+      <span class="tag">Service Design</span>
+      <span class="tag">Co-design</span>
+      <span class="tag">Real-world Project</span>
+      <span class="tag">Team Project</span>
+    </div>
+
+    <section class="section">
+      <h2>Context</h2>
+      <p class="summary">A service designed to enhance employee wellbeing by creating a strong sense of community from the start of their journey with the company. Using the metaphor of the tribe, it offers a structured onboarding process with rituals as shared experiences. These rituals, spread across eleven milestones over a one-month journey, are crucial as they foster connection, belonging, and support, making new employees feel welcomed and integrated. </p>
+    </section>
+
+    <section class="section">
+      <h2>Problem</h2>
+      <p class="summary">
+        Fragmented onboarding, unclear guidance, weak early connections, and underutilized well-being programs in a multi-generational global team.
+       Approach: Insight-driven reframing → participatory co-design workshops with ritual & community prototyping tools.
+        Reframed HMW: How might we deliver clear onboarding guidance while building community from day one?</p>
+      <div class="gallery">
+        <div class="image-frame">
+          <img src="assets/tangity-tribe/challenge.jpg" alt="Challenge and reframing">
+          <div class="image-note">Figure 1. Challenge framing and reframing path through interviews and co-design.</div>
+        </div>
+        <div class="image-frame">
+          <img src="assets/tangity-tribe/codesign.jpg" alt="Co-design workshop">
+          <div class="image-note">Figure 2. Co-design sessions used to collect stakeholder insights and idea seeds.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Process</h2>
+      <p class="summary">The service concept evolved from stakeholder mapping and persona alignment to a ritual-based journey and touchpoint system.</p>
+      <div class="gallery">
+        <div class="image-frame">
+          <img src="assets/tangity-tribe/offering-map.jpg" alt="Service offering map">
+          <div class="image-note">Figure 3. Service offering map and value ecosystem around onboarding ritual.</div>
+        </div>
+        <div class="image-frame">
+          <img src="assets/tangity-tribe/stakeholders.jpg" alt="Stakeholder map">
+          <div class="image-note">Figure 4. Stakeholder map clarifying relationships and support moments.</div>
+        </div>
+      </div>
+      <details class="details-block">
+        <summary>See Details</summary>
+        <div class="details-inner">
+          <div class="gallery">
+            <div class="image-frame">
+              <img src="assets/tangity-tribe/persona.jpg" alt="Persona">
+              <div class="image-note">Figure 5. Persona definition for onboarding needs and pain points.</div>
+            </div>
+            <div class="image-frame">
+              <img src="assets/tangity-tribe/journey.jpg" alt="User journey">
+              <div class="image-note">Figure 6. Journey map from onboarding kit to community participation.</div>
+            </div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <section class="section">
+      <h2>Interface & Touchpoints</h2>
+      <p class="summary">A multi-touchpoint kit translated strategy into practical onboarding artifacts, including cards, maps, and ritual objects for team facilitation.</p>
+      <div class="image-frame">
+        <img src="assets/tangity-tribe/touchpoints.jpg" alt="Touchpoint design kit">
+        <div class="image-note">Figure 7. Final touchpoint kit and prototype artifacts for onboarding activation.</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Outcome</h2>
+      <p class="summary">Tangity Tribe delivers a clearer onboarding framework that improves emotional integration, cross-team connection, and shared participation in company culture.</p>
+    </section>
+  </main>
+<script>
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+const bgWords = document.querySelectorAll('.case-bg-word');
+let mx = 0, my = 0, rx = 0, ry = 0;
+
+if (cursor && ring) {
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX;
+    my = e.clientY;
+    cursor.style.transform = `translate(calc(${mx}px - 50%), calc(${my}px - 50%))`;
+  });
+
+  (function animateRing() {
+    rx += (mx - rx) * 0.1;
+    ry += (my - ry) * 0.1;
+    ring.style.transform = `translate(calc(${rx}px - 50%), calc(${ry}px - 50%))`;
+    requestAnimationFrame(animateRing);
+  })();
+
+  document.querySelectorAll('a, summary').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      ring.style.width = '44px';
+      ring.style.height = '44px';
+      ring.style.opacity = '0.22';
+    });
+    el.addEventListener('mouseleave', () => {
+      ring.style.width = '28px';
+      ring.style.height = '28px';
+      ring.style.opacity = '0.35';
+    });
+  });
+}
+
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
+  bgWords.forEach(el => {
+    const speed = parseFloat(el.dataset.speed || '0.16');
+    el.style.transform = `translateY(${scrollY * speed}px)`;
+  });
+}, { passive: true });
+
+const targets = document.querySelectorAll('.top, .hero-title, .hero-sub, .meta, .section, .image-frame, .details-block');
+targets.forEach(el => el.classList.add('reveal'));
+
+const io = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -36px 0px' });
+
+targets.forEach(el => io.observe(el));
+</script>
+</body>
+</html>
+
+
