@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Junyan Lu - UX Designer</title>
+<title>Junyan Lu — UX Designer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -30,7 +30,6 @@
     font-size: 15px;
     line-height: 1.6;
     overflow-x: hidden;
-    cursor: auto;
   }
 
   .cursor {
@@ -68,14 +67,9 @@
   .nav-links { display: flex; gap: 36px; list-style: none; }
   .nav-toggle {
     display: none;
-    border: 0;
-    background: transparent;
-    color: var(--fg);
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    cursor: pointer;
+    border: 0; background: transparent; color: var(--fg);
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer;
   }
   .nav-links a {
     font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.07em;
@@ -83,71 +77,51 @@
   }
   .nav-links a:hover { color: var(--fg); }
 
+  /* ── HERO ── */
   #hero { height: 240vh; position: relative; }
-
   .hero-sticky {
     position: sticky; top: 0; height: 100vh;
     display: flex; align-items: center; justify-content: center; overflow: hidden;
   }
-
   .hero-text-wrap {
     position: relative; width: 100%; height: 100vh;
     display: flex; flex-direction: column; justify-content: center; padding: 0 48px;
   }
-
   .hero-bg-word {
-    position: absolute;
-    font-family: var(--font-serif); font-weight: 300; font-style: italic;
+    position: absolute; font-family: var(--font-serif); font-weight: 300; font-style: italic;
     color: var(--fg); pointer-events: none; will-change: transform; user-select: none;
   }
-  .hw1 { font-size: clamp(80px, 14vw, 200px); top: 5%; right: -3%; opacity: 0.04; }
-  .hw2 { font-size: clamp(40px, 7vw, 110px); bottom: 12%; left: 2%; opacity: 0.06; }
-  .hw3 { font-size: clamp(30px, 5vw, 80px); top: 38%; right: 8%; opacity: 0.05; }
+  .hw1 { font-size: clamp(80px,14vw,200px); top: 5%; right: -3%; opacity: 0.04; }
+  .hw2 { font-size: clamp(40px,7vw,110px); bottom: 12%; left: 2%; opacity: 0.06; }
+  .hw3 { font-size: clamp(30px,5vw,80px); top: 38%; right: 8%; opacity: 0.05; }
 
   .h-name {
     font-family: var(--font-display); font-weight: 700;
-    font-size: clamp(72px, 11vw, 160px); letter-spacing: -0.03em; color: var(--fg);
-    display: block; will-change: transform;
-    transform-origin: left top;
+    font-size: clamp(72px,11vw,160px); letter-spacing: -0.03em; color: var(--fg);
+    display: block; will-change: transform; transform-origin: left top;
   }
   .h-title {
     font-family: var(--font-display); font-weight: 600;
-    font-size: clamp(12px, 1.3vw, 16px); letter-spacing: 0.22em; text-transform: uppercase;
+    font-size: clamp(12px,1.3vw,16px); letter-spacing: 0.22em; text-transform: uppercase;
     color: var(--fg-muted); margin-top: 16px;
-    display: block; will-change: transform, opacity;
-    opacity: 0; transform: translateY(24px);
-  }
-  .h-desc {
-    font-family: var(--font-display); font-weight: 400;
-    font-size: clamp(18px, 2vw, 26px); color: var(--fg);
-    max-width: 580px; margin-top: 32px; line-height: 1.55;
-    display: block; will-change: transform, opacity;
-    opacity: 0; transform: translateY(24px);
+    display: block; will-change: transform, opacity; opacity: 0; transform: translateY(24px);
   }
   .h-location {
     font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em;
     color: var(--fg-faint); margin-top: 30px;
-    display: flex; align-items: center; gap: 8px; will-change: transform, opacity;
-    opacity: 0; transform: translateY(24px);
+    display: flex; align-items: center; gap: 8px;
+    will-change: transform, opacity; opacity: 0; transform: translateY(24px);
   }
   .h-location::before { content: ''; display: block; width: 20px; height: 1px; background: var(--fg-faint); }
 
   .hero-detail {
-    display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-    gap: 48px;
-    max-width: 1080px;
-    margin-top: 68px;
-    opacity: 0;
-    transform: translateY(28px);
-    will-change: transform, opacity;
+    display: grid; grid-template-columns: minmax(0,1.05fr) minmax(0,0.95fr);
+    gap: 48px; max-width: 1080px; margin-top: 68px;
+    opacity: 0; transform: translateY(28px); will-change: transform, opacity;
   }
   .hero-about-text {
-    font-family: var(--font-serif);
-    font-size: clamp(20px, 2.2vw, 30px);
-    line-height: 1.5;
-    max-width: 600px;
-    color: var(--fg);
+    font-family: var(--font-serif); font-size: clamp(20px,2.2vw,30px);
+    line-height: 1.5; max-width: 600px; color: var(--fg);
   }
   .hero-about-label {
     font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em;
@@ -159,50 +133,31 @@
     text-transform: uppercase; color: var(--fg-faint); margin-bottom: 18px;
   }
   .hero-exp-item {
-    display: grid;
-    grid-template-columns: 130px 1fr;
-    gap: 20px;
-    padding: 14px 0;
-    border-top: 1px solid var(--line);
+    display: grid; grid-template-columns: 130px 1fr; gap: 20px;
+    padding: 14px 0; border-top: 1px solid var(--line);
   }
   .hero-exp-item:last-child { border-bottom: 1px solid var(--line); }
-  .hero-exp-period {
-    font-family: var(--font-mono); font-size: 10px;
-    letter-spacing: 0.08em; color: var(--fg-faint);
-  }
-  .hero-exp-role {
-    font-family: var(--font-display); font-size: 14px; font-weight: 600; color: var(--fg);
-  }
-  .hero-exp-company {
-    font-family: var(--font-serif); font-size: 14px; font-style: italic;
-    color: var(--fg-muted); margin-top: 2px;
-  }
+  .hero-exp-period { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; color: var(--fg-faint); }
+  .hero-exp-role { font-family: var(--font-display); font-size: 14px; font-weight: 600; color: var(--fg); }
+  .hero-exp-company { font-family: var(--font-serif); font-size: 14px; font-style: italic; color: var(--fg-muted); margin-top: 2px; }
 
   .scroll-hint {
     position: absolute; bottom: 40px; right: 48px;
     display: flex; flex-direction: column; align-items: center; gap: 10px; opacity: 0.3;
   }
-  .scroll-hint span {
-    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em;
-    writing-mode: vertical-rl;
-  }
-  .scroll-line {
-    width: 1px; height: 48px; background: var(--fg);
-    transform-origin: top; animation: scrollPulse 1.8s ease-in-out infinite;
-  }
+  .scroll-hint span { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em; writing-mode: vertical-rl; }
+  .scroll-line { width: 1px; height: 48px; background: var(--fg); transform-origin: top; animation: scrollPulse 1.8s ease-in-out infinite; }
   @keyframes scrollPulse {
-    0%, 100% { transform: scaleY(0.2); opacity: 0.3; }
+    0%,100% { transform: scaleY(0.2); opacity: 0.3; }
     50% { transform: scaleY(1); opacity: 1; }
   }
 
+  /* ── MARQUEE ── */
   .marquee-wrap {
-    overflow: hidden;
-    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    overflow: hidden; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
     padding: 16px 0; background: var(--bg);
   }
-  .marquee-track {
-    display: flex; animation: marqueeScroll 24s linear infinite; width: max-content;
-  }
+  .marquee-track { display: flex; animation: marqueeScroll 24s linear infinite; width: max-content; }
   .marquee-item {
     font-family: var(--font-serif); font-style: italic; font-size: 15px;
     color: var(--fg-faint); padding: 0 40px; white-space: nowrap;
@@ -214,75 +169,64 @@
     to { transform: translateX(-50%); }
   }
 
+  /* ── SECTIONS ── */
   section { padding: 120px 48px; }
-
   .section-label {
     font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em;
     text-transform: uppercase; color: var(--fg-faint); margin-bottom: 64px;
     display: flex; align-items: center; gap: 16px;
   }
-  .section-label::after {
-    content: ''; flex: 1; height: 1px; background: var(--line); max-width: 80px;
-  }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--line); max-width: 80px; }
 
+  /* ── WORK ── */
   #work { background: var(--bg); padding-top: 80px; }
-
   .project-list { display: flex; flex-direction: column; }
 
   .project-card {
-    display: grid;
-    grid-template-columns: 72px 1fr auto 72px;
-    align-items: center; gap: 40px;
-    padding: 32px 0; border-top: 1px solid var(--line);
+    display: grid; grid-template-columns: 72px 1fr auto 72px;
+    align-items: center; gap: 40px; padding: 32px 0;
+    border-top: 1px solid var(--line);
     text-decoration: none; color: var(--fg);
-    transition: border-color 0.4s cubic-bezier(0.76, 0, 0.24, 1); position: relative;
-    overflow: hidden;
+    transition: border-color 0.4s cubic-bezier(0.76,0,0.24,1);
+    position: relative; overflow: hidden;
   }
   .project-card:last-child { border-bottom: 1px solid var(--line); }
-
   .project-card::before {
-    content: ''; position: absolute; inset: 0;
-    background: var(--fg); transform: scaleY(0); transform-origin: bottom;
-    transition: transform 0.42s cubic-bezier(0.76, 0, 0.24, 1) 0.03s; z-index: 0;
+    content: ''; position: absolute; inset: 0; background: var(--fg);
+    transform: scaleY(0); transform-origin: bottom;
+    transition: transform 0.42s cubic-bezier(0.76,0,0.24,1) 0.03s; z-index: 0;
   }
   .project-card:hover::before { transform: scaleY(1); }
   .project-card > * { position: relative; z-index: 1; }
-
   .project-card:hover .project-num,
   .project-card:hover .project-title,
   .project-card:hover .project-subtitle,
-  .project-card:hover .project-type,
   .project-card:hover .project-arrow { color: var(--bg); }
   .project-card:hover .project-tag { border-color: rgba(245,243,239,0.2); color: rgba(245,243,239,0.55); }
 
-  .project-num {
-    font-family: var(--font-mono); font-size: 11px;
-    color: var(--fg-faint); letter-spacing: 0.08em; transition: color 0.38s cubic-bezier(0.76, 0, 0.24, 1);
-  }
-  .project-title {
-    font-family: var(--font-display); font-weight: 700;
-    font-size: clamp(20px, 2.6vw, 32px); letter-spacing: -0.01em; transition: color 0.38s cubic-bezier(0.76, 0, 0.24, 1);
-  }
-  .project-subtitle {
-    font-family: var(--font-serif); font-style: italic; font-size: 14px;
-    color: var(--fg-muted); margin-top: 3px; transition: color 0.38s cubic-bezier(0.76, 0, 0.24, 1);
-  }
+  .project-num { font-family: var(--font-mono); font-size: 11px; color: var(--fg-faint); letter-spacing: 0.08em; transition: color 0.38s cubic-bezier(0.76,0,0.24,1); }
+  .project-title { font-family: var(--font-display); font-weight: 700; font-size: clamp(20px,2.6vw,32px); letter-spacing: -0.01em; transition: color 0.38s cubic-bezier(0.76,0,0.24,1); }
+  .project-subtitle { font-family: var(--font-serif); font-style: italic; font-size: 14px; color: var(--fg-muted); margin-top: 3px; transition: color 0.38s cubic-bezier(0.76,0,0.24,1); }
   .project-tags { display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; }
   .project-tag {
     font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em;
-    padding: 4px 10px; border: 1px solid var(--line);
-    color: var(--fg-muted); transition: border-color 0.38s cubic-bezier(0.76, 0, 0.24, 1), color 0.38s cubic-bezier(0.76, 0, 0.24, 1);
+    padding: 4px 10px; border: 1px solid var(--line); color: var(--fg-muted);
+    transition: border-color 0.38s cubic-bezier(0.76,0,0.24,1), color 0.38s cubic-bezier(0.76,0,0.24,1);
   }
-  .project-arrow {
-    font-size: 20px; color: var(--fg-faint); text-align: right;
-    transition: color 0.38s cubic-bezier(0.76, 0, 0.24, 1), transform 0.32s cubic-bezier(0.76, 0, 0.24, 1);
-  }
+  .project-arrow { font-size: 20px; color: var(--fg-faint); text-align: right; transition: color 0.38s cubic-bezier(0.76,0,0.24,1), transform 0.32s cubic-bezier(0.76,0,0.24,1); }
   .project-card:hover .project-arrow { transform: translateX(5px); }
-  a:focus-visible,
-  button:focus-visible {
-    outline: 2px solid var(--fg);
-    outline-offset: 3px;
+
+  /* mini badge */
+  .project-badge {
+    display: inline-block;
+    font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.1em;
+    padding: 2px 7px; border: 1px solid var(--fg-faint); color: var(--fg-faint);
+    text-transform: uppercase; margin-left: 8px; vertical-align: middle;
+    transition: border-color 0.38s, color 0.38s;
   }
+  .project-card:hover .project-badge { border-color: rgba(245,243,239,0.3); color: rgba(245,243,239,0.45); }
+
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--fg); outline-offset: 3px; }
 
   @media (hover: hover) and (pointer: fine) {
     body.custom-cursor { cursor: none; }
@@ -290,24 +234,12 @@
     body.custom-cursor a, body.custom-cursor button, body.custom-cursor .project-card { cursor: none; }
   }
 
+  /* ── SKILLS ── */
   #skills { background: var(--bg); }
-
-  .skills-exp-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 72px;
-    align-items: start;
-  }
-  .skills-layout {
-    display: grid; grid-template-columns: 260px 1fr; gap: 80px;
-    max-width: none; align-items: start;
-  }
-  .skills-intro {
-    font-family: var(--font-serif); font-size: 22px; font-weight: 300;
-    line-height: 1.65; color: var(--fg);
-  }
+  .skills-exp-layout { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 72px; align-items: start; }
+  .skills-layout { display: grid; grid-template-columns: 260px 1fr; gap: 80px; max-width: none; align-items: start; }
+  .skills-intro { font-family: var(--font-serif); font-size: 22px; font-weight: 300; line-height: 1.65; color: var(--fg); }
   .skills-intro em { font-style: italic; color: var(--fg-muted); }
-
   .skills-groups { display: flex; flex-direction: column; gap: 44px; }
   .skill-group-title {
     font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em;
@@ -317,57 +249,35 @@
   .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
   .skill-tag {
     font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em;
-    padding: 6px 14px; border: 1px solid var(--line); color: var(--fg-muted);
-    transition: all 0.2s;
+    padding: 6px 14px; border: 1px solid var(--line); color: var(--fg-muted); transition: all 0.2s;
   }
   .skill-tag:hover { border-color: var(--fg); color: var(--fg); }
-
   .exp-wrap { margin-top: 0; max-width: none; }
-  .exp-sublabel {
-    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em;
-    text-transform: uppercase; color: var(--fg-faint); margin-bottom: 0;
-  }
-  .exp-item {
-    display: grid; grid-template-columns: 200px 1fr; gap: 48px;
-    padding: 36px 0; border-top: 1px solid var(--line);
-    transition: opacity 0.3s;
-  }
+  .exp-sublabel { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--fg-faint); margin-bottom: 0; }
+  .exp-item { display: grid; grid-template-columns: 200px 1fr; gap: 48px; padding: 36px 0; border-top: 1px solid var(--line); transition: opacity 0.3s; }
   .exp-item:hover { opacity: 0.65; }
   .exp-period { font-family: var(--font-mono); font-size: 11px; color: var(--fg-faint); letter-spacing: 0.06em; }
   .exp-company { font-family: var(--font-mono); font-size: 11px; color: var(--fg-muted); margin-top: 3px; }
   .exp-role { font-family: var(--font-display); font-weight: 600; font-size: 16px; color: var(--fg); }
-  .exp-desc {
-    font-family: var(--font-serif); font-size: 16px; line-height: 1.7;
-    color: var(--fg-muted); margin-top: 8px;
-  }
+  .exp-desc { font-family: var(--font-serif); font-size: 16px; line-height: 1.7; color: var(--fg-muted); margin-top: 8px; }
 
+  /* ── CONTACT ── */
   #contact {
     background: var(--fg); color: var(--bg);
     min-height: 80vh; display: flex; flex-direction: column;
     justify-content: space-between; padding: 120px 48px 60px;
   }
-  .contact-headline {
-    font-family: var(--font-serif); font-weight: 300; font-style: italic;
-    font-size: clamp(48px, 7vw, 108px); line-height: 1.05;
-    color: var(--bg); max-width: 800px;
-  }
+  .contact-headline { font-family: var(--font-serif); font-weight: 300; font-style: italic; font-size: clamp(48px,7vw,108px); line-height: 1.05; color: var(--bg); max-width: 800px; }
   .contact-links { display: flex; gap: 52px; margin-top: 64px; flex-wrap: wrap; }
   .contact-link { text-decoration: none; display: flex; flex-direction: column; gap: 6px; transition: opacity 0.2s; }
   .contact-link:hover { opacity: 0.55; }
-  .contact-link-label {
-    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em;
-    color: rgba(245,243,239,0.3); text-transform: uppercase;
-  }
+  .contact-link-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; color: rgba(245,243,239,0.3); text-transform: uppercase; }
   .contact-link-value { font-family: var(--font-display); font-size: 16px; font-weight: 500; color: var(--bg); }
-
-  .footer-row {
-    display: flex; justify-content: space-between; align-items: flex-end;
-    padding-top: 80px; margin-top: 80px;
-    border-top: 1px solid rgba(245,243,239,0.08);
-  }
+  .footer-row { display: flex; justify-content: space-between; align-items: flex-end; padding-top: 80px; margin-top: 80px; border-top: 1px solid rgba(245,243,239,0.08); }
   .footer-copy { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; color: rgba(245,243,239,0.2); }
   .footer-sig { font-family: var(--font-serif); font-style: italic; font-size: 13px; color: rgba(245,243,239,0.25); }
 
+  /* ── REVEAL ── */
   .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
   .reveal-d1 { transition-delay: 0.1s; }
@@ -375,22 +285,16 @@
   .reveal-d3 { transition-delay: 0.3s; }
   .reveal-d4 { transition-delay: 0.4s; }
 
+  /* ── RESPONSIVE ── */
   @media (max-width: 960px) {
     body { cursor: auto; }
     .cursor, .cursor-ring { display: none; }
     nav { padding: 18px 20px; }
     .nav-toggle { display: inline-flex; align-items: center; }
     .nav-links {
-      position: absolute;
-      top: calc(100% + 8px);
-      right: 20px;
-      left: 20px;
-      padding: 14px 16px;
-      background: rgba(245,243,239,0.98);
-      border: 1px solid var(--line);
-      display: none;
-      flex-direction: column;
-      gap: 14px;
+      position: absolute; top: calc(100% + 8px); right: 20px; left: 20px;
+      padding: 14px 16px; background: rgba(245,243,239,0.98); border: 1px solid var(--line);
+      display: none; flex-direction: column; gap: 14px;
     }
     .nav-links.is-open { display: flex; }
     .hero-text-wrap { padding: 0 20px; }
@@ -402,9 +306,7 @@
     #work { padding-top: 60px; }
     .project-card {
       grid-template-columns: 44px 1fr auto;
-      gap: 14px 12px;
-      align-items: start;
-      padding: 22px 0;
+      gap: 14px 12px; align-items: start; padding: 22px 0;
     }
     .project-tags { grid-column: 1 / -1; justify-content: flex-start; }
     .project-arrow { text-align: right; }
@@ -416,19 +318,18 @@
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 
-<!-- Nav -->
 <nav id="mainNav">
   <a href="#hero" class="nav-logo">JL</a>
   <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">Menu</button>
   <ul class="nav-links" id="navLinks">
     <li><a href="#work">Work</a></li>
-    <li><a href="#mini">Mini</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
+<!-- HERO -->
 <section id="hero">
   <div class="hero-sticky">
     <span class="hero-bg-word hw1" data-speed="0.28">Design</span>
@@ -449,24 +350,24 @@
         <div class="hero-exp">
           <div class="hero-exp-title">Experience</div>
           <div class="hero-exp-item">
-            <div class="hero-exp-period">Feb - Jun 2025</div>
+            <div class="hero-exp-period">Feb – Jun 2025</div>
             <div>
               <div class="hero-exp-role">UX &amp; Product Design Intern</div>
               <div class="hero-exp-company">DI Works · Milan, Italy</div>
             </div>
           </div>
           <div class="hero-exp-item">
-            <div class="hero-exp-period">Dec 2022 - Jul 2023</div>
+            <div class="hero-exp-period">Dec 2022 – Jul 2023</div>
             <div>
               <div class="hero-exp-role">User Experience Strategy Intern</div>
               <div class="hero-exp-company">Bosch Power Tools · Shanghai, China</div>
             </div>
           </div>
           <div class="hero-exp-item">
-            <div class="hero-exp-period">Jul - Sep 2022</div>
+            <div class="hero-exp-period">Jul – Sep 2022</div>
             <div>
               <div class="hero-exp-role">User &amp; Trend Research Intern</div>
-              <div class="hero-exp-company">Temimu Business Incubator Management · Shanghai, China</div>
+              <div class="hero-exp-company">Temimu Business Incubator · Shanghai, China</div>
             </div>
           </div>
         </div>
@@ -480,6 +381,7 @@
   </div>
 </section>
 
+<!-- MARQUEE -->
 <div class="marquee-wrap">
   <div class="marquee-track">
     <span class="marquee-item">UX Design</span>
@@ -501,12 +403,30 @@
   </div>
 </div>
 
+<!-- WORK -->
 <section id="work">
   <div class="section-label reveal">Selected Work</div>
 
   <div class="project-list">
-    <a href="project-uniplus.html" class="project-card reveal" aria-label="Open case study: UniPlus, micro-credential platform for Politecnico di Milano">
+
+    <!-- 01 YouFeed — NEW FIRST -->
+    <a href="project-youfeed.html" class="project-card reveal" aria-label="Open case study: YouFeed, voice-first exhibition feedback touchpoint">
       <span class="project-num">01</span>
+      <div>
+        <div class="project-title">YouFeed</div>
+        <div class="project-subtitle">Voice-first exhibition feedback touchpoint for DI Works</div>
+      </div>
+      <div class="project-tags">
+        <span class="project-tag">UX Design</span>
+        <span class="project-tag">Touchpoint Design</span>
+        <span class="project-tag">Internship</span>
+      </div>
+      <span class="project-arrow">→</span>
+    </a>
+
+    <!-- 02 UniPlus -->
+    <a href="project-uniplus.html" class="project-card reveal reveal-d1" aria-label="Open case study: UniPlus, micro-credential platform for Politecnico di Milano">
+      <span class="project-num">02</span>
       <div>
         <div class="project-title">UniPlus</div>
         <div class="project-subtitle">Micro-credential platform for Politecnico di Milano</div>
@@ -519,8 +439,9 @@
       <span class="project-arrow">→</span>
     </a>
 
-    <a href="project-promap.html" class="project-card reveal reveal-d1" aria-label="Open case study: Promap, career development platform for construction workers">
-      <span class="project-num">02</span>
+    <!-- 03 Promap -->
+    <a href="project-promap.html" class="project-card reveal reveal-d2" aria-label="Open case study: Promap, career development platform for construction workers">
+      <span class="project-num">03</span>
       <div>
         <div class="project-title">Promap</div>
         <div class="project-subtitle">Career development platform for construction workers</div>
@@ -533,8 +454,9 @@
       <span class="project-arrow">→</span>
     </a>
 
-    <a href="project-kiss-kitty.html" class="project-card reveal reveal-d2" aria-label="Open case study: Kiss Kitty, IoT health monitoring service for pet cats">
-      <span class="project-num">03</span>
+    <!-- 04 Kiss Kitty -->
+    <a href="project-kiss-kitty.html" class="project-card reveal reveal-d3" aria-label="Open case study: Kiss Kitty, IoT health monitoring service for pet cats">
+      <span class="project-num">04</span>
       <div>
         <div class="project-title">Kiss Kitty</div>
         <div class="project-subtitle">IoT health monitoring service for pet cats</div>
@@ -547,8 +469,9 @@
       <span class="project-arrow">→</span>
     </a>
 
-    <a href="project-tangity-tribe.html" class="project-card reveal reveal-d3" aria-label="Open case study: Tangity Tribe, employee onboarding ritual for NTT Data and Tangity">
-      <span class="project-num">04</span>
+    <!-- 05 Tangity Tribe -->
+    <a href="project-tangity-tribe.html" class="project-card reveal reveal-d4" aria-label="Open case study: Tangity Tribe, employee onboarding ritual for NTT Data and Tangity">
+      <span class="project-num">05</span>
       <div>
         <div class="project-title">Tangity Tribe</div>
         <div class="project-subtitle">Employee onboarding ritual for NTT Data / Tangity</div>
@@ -560,36 +483,46 @@
       </div>
       <span class="project-arrow">→</span>
     </a>
-  </div>
-</section>
 
-<section id="mini">
-  <div class="section-label reveal">Mini Projects</div>
-  <div class="project-list">
-    <a href="https://sound-mirror-app.vercel.app/" class="project-card reveal" target="_blank" rel="noopener noreferrer" aria-label="Open mini project: Sound Mirror App, interactive web app prototype">
+    <!-- M1 Sound Mirror -->
+    <a href="https://sound-mirror-app.vercel.app/" class="project-card reveal" target="_blank" rel="noopener noreferrer" aria-label="Open mini project: Sound Mirror App">
       <span class="project-num">M1</span>
       <div>
-        <div class="project-title">Sound Mirror App</div>
+        <div class="project-title">Sound Mirror <span class="project-badge">Mini</span></div>
         <div class="project-subtitle">Interactive web app prototype built with vibe coding</div>
       </div>
       <div class="project-tags">
         <span class="project-tag">Web App</span>
         <span class="project-tag">Vibe Coding</span>
-        <span class="project-tag">New</span>
       </div>
-      <span class="project-arrow">→</span>
+      <span class="project-arrow">↗</span>
     </a>
+
+    <!-- M2 Caffeine Check -->
+    <a href="https://jackbo9.github.io/caffeine-check/" class="project-card reveal reveal-d1" target="_blank" rel="noopener noreferrer" aria-label="Open mini project: Caffeine Check App">
+      <span class="project-num">M2</span>
+      <div>
+        <div class="project-title">Caffeine Check <span class="project-badge">Mini</span></div>
+        <div class="project-subtitle">Caffeine intake tracker built with vibe coding</div>
+      </div>
+      <div class="project-tags">
+        <span class="project-tag">Web App</span>
+        <span class="project-tag">Vibe Coding</span>
+      </div>
+      <span class="project-arrow">↗</span>
+    </a>
+
   </div>
 </section>
 
-<!-- 鈹€鈹€ SKILLS & EXPERIENCE 鈹€鈹€ -->
+<!-- SKILLS & EXPERIENCE -->
 <section id="skills">
   <div class="section-label reveal">Skills &amp; Experience</div>
 
   <div class="skills-exp-layout">
     <div class="skills-layout">
       <p class="skills-intro reveal">
-        I work across the full design process - from <em>early discovery</em> to
+        I work across the full design process — from <em>early discovery</em> to
         <em>high-fidelity output.</em>
       </p>
 
@@ -607,7 +540,6 @@
             <span class="skill-tag">Systems Thinking</span>
           </div>
         </div>
-
         <div class="reveal reveal-d1">
           <div class="skill-group-title">Research</div>
           <div class="skill-tags">
@@ -619,7 +551,6 @@
             <span class="skill-tag">Competitor Benchmarking</span>
           </div>
         </div>
-
         <div class="reveal reveal-d2">
           <div class="skill-group-title">Tools</div>
           <div class="skill-tags">
@@ -638,48 +569,48 @@
 
       <div class="exp-item reveal">
         <div>
-          <div class="exp-period">Feb - Jun 2025</div>
+          <div class="exp-period">Feb – Jun 2025</div>
           <div class="exp-company">DI Works · Milan, Italy</div>
         </div>
         <div>
           <div class="exp-role">UX &amp; Product Design Intern</div>
-          <div class="exp-desc">Translated research insights into user flows, wireframes, and high-fidelity prototypes for cross-industry R&amp;D projects. Contributed to interaction decisions, ensuring clarity and usability in early-stage concepts for design projects across different industries. Conducted use-case exploration for an internal AI-driven product, identifying opportunities to support user engagement.</div>
+          <div class="exp-desc">Translated research insights into user flows, wireframes, and high-fidelity prototypes for cross-industry R&amp;D projects. Contributed to interaction decisions, ensuring clarity and usability in early-stage concepts. Conducted use-case exploration for an internal AI-driven product, identifying opportunities to support user engagement.</div>
         </div>
       </div>
 
       <div class="exp-item reveal reveal-d1">
         <div>
-          <div class="exp-period">Dec 2022 - Jul 2023</div>
+          <div class="exp-period">Dec 2022 – Jul 2023</div>
           <div class="exp-company">Bosch Power Tools · Shanghai, China</div>
         </div>
         <div>
           <div class="exp-role">User Experience Strategy Intern</div>
-          <div class="exp-desc">Conducted user research and 20+ interviews to identify user needs and develop actionable user personas. Led competitor benchmarking and facilitated a cross-functional concept workshop. Synthesized research insights into actionable inputs for digital product and UX strategy decisions.</div>
+          <div class="exp-desc">Conducted user research and 20+ interviews to identify user needs and develop actionable personas. Led competitor benchmarking and facilitated a cross-functional concept workshop. Synthesized insights into actionable inputs for digital product and UX strategy decisions.</div>
         </div>
       </div>
 
       <div class="exp-item reveal reveal-d2">
         <div>
-          <div class="exp-period">Jul - Sep 2022</div>
-          <div class="exp-company">Temimu Business Incubator Management · Shanghai, China</div>
+          <div class="exp-period">Jul – Sep 2022</div>
+          <div class="exp-company">Temimu Business Incubator · Shanghai, China</div>
         </div>
         <div>
           <div class="exp-role">User &amp; Trend Research Intern</div>
-          <div class="exp-desc">Researched lifestyle and consumption trends among ages 23-35 to identify opportunity areas. Synthesized desk research and interviews into concise, decision-oriented insights. Supported early-stage concept framing and communicated findings to stakeholders.</div>
+          <div class="exp-desc">Researched lifestyle and consumption trends among ages 23–35 to identify opportunity areas. Synthesized desk research and interviews into concise, decision-oriented insights. Supported early-stage concept framing and communicated findings to stakeholders.</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 鈹€鈹€ CONTACT 鈹€鈹€ -->
+<!-- CONTACT -->
 <section id="contact">
   <div>
     <p class="contact-headline reveal">
       Let's work<br>together.
     </p>
     <div class="contact-links">
-      <a href="mailto:junyan.lu@mail.polimi.it" class="contact-link reveal">
+      <a href="mailto:iamjunyan.lu@gmail.com" class="contact-link reveal">
         <span class="contact-link-label">Email</span>
         <span class="contact-link-value">iamjunyan.lu@gmail.com</span>
       </a>
@@ -697,43 +628,40 @@
       </a>
     </div>
   </div>
-
   <div class="footer-row">
-    <span class="footer-copy">© 2026 Junyan Lu - All rights reserved</span>
+    <span class="footer-copy">© 2026 Junyan Lu — All rights reserved</span>
     <span class="footer-sig">Designed with intention.</span>
   </div>
 </section>
 
 <script>
-// 鈹€鈹€ Custom cursor 鈹€鈹€
+// Custom cursor
 const cursor = document.getElementById('cursor');
-const ring = document.getElementById('cursorRing');
-const navToggle = document.getElementById('navToggle');
-const navLinks = document.getElementById('navLinks');
+const ring   = document.getElementById('cursorRing');
 const hasFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 let mx = 0, my = 0, rx = 0, ry = 0;
 
 if (hasFinePointer && cursor && ring) {
   document.body.classList.add('custom-cursor');
-
   document.addEventListener('mousemove', e => {
     mx = e.clientX; my = e.clientY;
     cursor.style.transform = `translate(calc(${mx}px - 50%), calc(${my}px - 50%))`;
   });
-
   (function animateRing() {
     rx += (mx - rx) * 0.1;
     ry += (my - ry) * 0.1;
     ring.style.transform = `translate(calc(${rx}px - 50%), calc(${ry}px - 50%))`;
     requestAnimationFrame(animateRing);
   })();
-
   document.querySelectorAll('a, button').forEach(el => {
-    el.addEventListener('mouseenter', () => { ring.style.width = '52px'; ring.style.height = '52px'; ring.style.opacity = '0.2'; });
-    el.addEventListener('mouseleave', () => { ring.style.width = '32px'; ring.style.height = '32px'; ring.style.opacity = '0.4'; });
+    el.addEventListener('mouseenter', () => { ring.style.width='52px'; ring.style.height='52px'; ring.style.opacity='0.2'; });
+    el.addEventListener('mouseleave', () => { ring.style.width='32px'; ring.style.height='32px'; ring.style.opacity='0.4'; });
   });
 }
 
+// Mobile nav
+const navToggle = document.getElementById('navToggle');
+const navLinks  = document.getElementById('navLinks');
 if (navToggle && navLinks) {
   navToggle.addEventListener('click', () => {
     const open = navLinks.classList.toggle('is-open');
@@ -746,17 +674,16 @@ if (navToggle && navLinks) {
     });
   });
 }
-// 鈹€鈹€ Hero scroll behavior 鈹€鈹€
-const heroEl = document.getElementById('hero');
-const bgWords = document.querySelectorAll('.hero-bg-word');
-const heroName = document.querySelector('.h-name');
-const heroTitle = document.querySelector('.h-title');
-const heroLocation = document.querySelector('.h-location');
-const heroDetail = document.querySelector('.hero-detail');
 
-function clamp(v, min, max) {
-  return Math.max(min, Math.min(v, max));
-}
+// Hero scroll
+const heroEl    = document.getElementById('hero');
+const bgWords   = document.querySelectorAll('.hero-bg-word');
+const heroName  = document.querySelector('.h-name');
+const heroTitle = document.querySelector('.h-title');
+const heroLoc   = document.querySelector('.h-location');
+const heroDetail= document.querySelector('.hero-detail');
+
+function clamp(v, min, max) { return Math.max(min, Math.min(v, max)); }
 
 function applyHeroScroll(scrollY) {
   const introRange = window.innerHeight * 1.2;
@@ -767,31 +694,24 @@ function applyHeroScroll(scrollY) {
 
   const infoProgress = clamp((introProgress - 0.16) / 0.5, 0, 1);
   const infoY = 24 * (1 - infoProgress);
-  [heroTitle, heroLocation].forEach(el => {
+  [heroTitle, heroLoc].forEach(el => {
     el.style.opacity = infoProgress;
     el.style.transform = `translateY(${infoY}px)`;
   });
 
   const detailProgress = clamp((introProgress - 0.34) / 0.42, 0, 1);
-  const detailY = 20 * (1 - detailProgress);
   heroDetail.style.opacity = detailProgress;
-  heroDetail.style.transform = `translateY(${detailY}px)`;
+  heroDetail.style.transform = `translateY(${20 * (1 - detailProgress)}px)`;
 }
 
 window.addEventListener('scroll', () => {
   const scrollY = window.scrollY;
-  const heroH = heroEl.offsetHeight;
-  const heroProgress = Math.min(scrollY / heroH, 1);
   applyHeroScroll(scrollY);
-
   bgWords.forEach(el => {
     const speed = parseFloat(el.dataset.speed);
-    const drift = scrollY * speed * 0.2;
-    el.style.transform = `translateY(${drift}px)`;
-    el.style.opacity = 0.03 + (1 - heroProgress) * 0.03;
+    el.style.transform = `translateY(${scrollY * speed * 0.2}px)`;
+    el.style.opacity = 0.03 + (1 - Math.min(scrollY / heroEl.offsetHeight, 1)) * 0.03;
   });
-
-  // Nav bg
   const nav = document.getElementById('mainNav');
   if (scrollY > 60) {
     nav.style.background = 'rgba(245,243,239,0.9)';
@@ -806,58 +726,11 @@ window.addEventListener('scroll', () => {
 
 applyHeroScroll(window.scrollY);
 
-// 鈹€鈹€ Scroll reveal 鈹€鈹€
-const revealEls = document.querySelectorAll('.reveal');
+// Scroll reveal
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.1, rootMargin: '0px 0px -32px 0px' });
-revealEls.forEach(el => io.observe(el));
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
-
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
