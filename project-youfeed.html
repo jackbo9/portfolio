@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YouFeed — Case Study — Junyan Lu</title>
+<title>YouFeed &mdash; Case Study &mdash; Junyan Lu</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -27,7 +27,7 @@
     color: var(--fg);
     font-family: var(--font-display);
     font-size: 15px;
-    line-height: 1.8;
+    line-height: 1.65;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
   }
@@ -60,13 +60,13 @@
     color: var(--fg-muted); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s;
   }
   .back:hover { color: var(--fg); }
-  .back::before { content: '←'; font-size: 14px; }
+  .back::before { content: '\2190'; font-size: 14px; }
   .case-num { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-faint); }
 
   /* Hero */
   .case-label { display: inline-block; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
   .case-title { font-family: var(--font-display); font-weight: 700; font-size: clamp(40px,7vw,86px); letter-spacing: -0.03em; line-height: 0.95; color: var(--fg); }
-  .case-sub { margin-top: 16px; font-family: var(--font-serif); font-size: clamp(18px,2.4vw,26px); color: var(--fg-muted); max-width: 760px; line-height: 1.7; }
+  .case-sub { margin-top: 16px; font-family: var(--font-serif); font-style: italic; font-size: clamp(21px,3.2vw,31px); color: var(--fg-muted); max-width: 760px; line-height: 1.65; }
   .meta { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 8px; }
   .tag { border: 1px solid var(--line); padding: 5px 12px; font-size: 12px; color: var(--fg-muted); border-radius: 2px; letter-spacing: 0.03em; }
 
@@ -78,8 +78,8 @@
   }
   .section-h::after { content: ''; flex: 1; max-width: 48px; height: 1px; background: var(--line); }
 
-  .summary { font-family: var(--font-serif); font-size: 17px; line-height: 1.9; color: var(--fg); max-width: 860px; margin-top: 12px; }
-  .summary + .summary { margin-top: 12px; }
+  .summary { font-size: 18px; line-height: 1.65; color: var(--fg); max-width: 860px; margin-top: 14px; }
+  .summary + .summary { margin-top: 14px; }
 
   /* Images */
   .img-frame { margin-top: 18px; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--bg-warm); }
@@ -135,8 +135,8 @@
   }
   .case-nav a { text-decoration: none; color: var(--fg-muted); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
   .case-nav a:hover { color: var(--fg); }
-  .case-nav .prev::before { content: '← '; }
-  .case-nav .next::after { content: ' →'; }
+  .case-nav .prev::before { content: '\2190 '; }
+  .case-nav .next::after { content: ' \2192'; }
 
   .footer { margin-top: 20px; color: var(--fg-faint); font-size: 12px; letter-spacing: 0.04em; }
 
@@ -175,9 +175,9 @@
   </div>
 
   <div class="case-hero">
-    <span class="case-label reveal">UX Design · Product Design · Exhibition Touchpoint</span>
+    <span class="case-label reveal">UX Design &middot; Product Design &middot; Exhibition Touchpoint</span>
     <h1 class="case-title reveal">YouFeed</h1>
-    <p class="case-sub reveal">Redesigning an exhibition feedback touchpoint to be voice-first and low-friction — connecting physical presence back into an analysable digital feedback loop.</p>
+    <p class="case-sub reveal">Redesigning an exhibition feedback touchpoint to be voice-first and low-friction &mdash; connecting physical presence back into an analysable digital feedback loop.</p>
     <div class="meta reveal d1">
       <span class="tag">Internship Project</span>
       <span class="tag">Voice-first</span>
@@ -189,24 +189,24 @@
   <!-- BACKGROUND -->
   <section class="section">
     <div class="section-h">Background</div>
-    <p class="summary reveal">This project originated from a real exhibition scenario I observed during my internship at DI Works. The original concept comprised two components: YouFeed handling front-end feedback collection — allowing visitors to reach a mobile page bound to a specific exhibit via QR code or NFC — and InsightGPT handling back-end transcription, analysis, and structuring, converting scattered voice feedback into actionable insights.</p>
-    <p class="summary reveal d1">As an intern, I focused on the front-end mobile experience of YouFeed. The goal was not to build a more complete form — it was to design a touchpoint genuinely suited to the exhibition environment: short dwell time, scarce attention, strong contextual dependency, yet still capable of capturing immediate, spontaneous reactions to the exhibit in front of you.</p>
+    <p class="summary reveal">This project originated from a real exhibition scenario I observed during my internship at DI Works. The original concept comprised two components: YouFeed handling front-end feedback collection &mdash; allowing visitors to reach a mobile page bound to a specific exhibit via QR code or NFC &mdash; and InsightGPT handling back-end transcription, analysis, and structuring, converting scattered voice feedback into actionable insights.</p>
+    <p class="summary reveal d1">As an intern, I focused on the front-end mobile experience of YouFeed. The goal was not to build a more complete form &mdash; it was to design a touchpoint genuinely suited to the exhibition environment: short dwell time, scarce attention, strong contextual dependency, yet still capable of capturing immediate, spontaneous reactions to the exhibit in front of you.</p>
   </section>
 
   <!-- OPPORTUNITY -->
   <section class="section">
     <div class="section-h">Scenario &amp; Opportunity</div>
-    <p class="summary reveal">In the Giacomini exhibition pilot, different NFC tags were deployed near different exhibits or display areas. Once triggered, the page had to immediately communicate to the user "what you are rating right now" — without creating the psychological burden of "I need to complete a task."</p>
+    <p class="summary reveal">In the Giacomini exhibition pilot, different NFC tags were deployed near different exhibits or display areas. Once triggered, the page had to immediately communicate to the user "what you are rating right now" &mdash; without creating the psychological burden of "I need to complete a task."</p>
     <div class="grid-two reveal d1">
       <div class="img-frame">
         <div class="img-placeholder medium">Exhibition stand photo<br><br>Recommended: Giacomini booth or exhibit environment</div>
         <img class="img-scene" src="assets/youfeed/background.png" alt="Exhibition context">
-        <div class="img-note">Illustrates that feedback is not a detached online action — it is an extension of the live exhibition experience.</div>
+        <div class="img-note">Illustrates that feedback is not a detached online action &mdash; it is an extension of the live exhibition experience.</div>
       </div>
       <div class="img-frame">
         <div class="img-placeholder medium">NFC / QR touchpoint photo<br><br>Recommended: tag, stand card, or touchpoint diagram</div>
         <img class="img-nfc" src="assets/youfeed/nfc.jpg" alt="NFC touchpoint">
-        <div class="img-note">Shows the trigger mechanic and the mental model: tap / scan → immediately enter feedback.</div>
+        <div class="img-note">Shows the trigger mechanic and the mental model: tap / scan &rarr; immediately enter feedback.</div>
       </div>
     </div>
   </section>
@@ -224,7 +224,7 @@
       <div class="bullet">
         <div>
           <strong>Feedback must be tightly bound to its object</strong>
-          <p>Whichever tag a user scans, they should immediately understand what they are evaluating — avoiding the feeling of a generic questionnaire.</p>
+          <p>Whichever tag a user scans, they should immediately understand what they are evaluating &mdash; avoiding the feeling of a generic questionnaire.</p>
         </div>
       </div>
       <div class="bullet">
@@ -255,39 +255,39 @@
   <!-- SYSTEM LOGIC -->
   <section class="section">
     <div class="section-h">System Logic</div>
-    <p class="summary reveal">This case study is not about designing a single page — it is about connecting the physical touchpoint, front-end interaction, and back-end insight pipeline into one coherent chain. For a portfolio, this matters more than showing isolated UI, because it articulates the conditions under which the design works and how it would be deployed.</p>
+    <p class="summary reveal">This case study is not about designing a single page &mdash; it is about connecting the physical touchpoint, front-end interaction, and back-end insight pipeline into one coherent chain. For a portfolio, this matters more than showing isolated UI, because it articulates the conditions under which the design works and how it would be deployed.</p>
     <div class="flow reveal d1">
       <div class="flow-grid">
         <div class="flow-item">Exhibit / Display Area</div>
-        <div class="arrow">→</div>
+        <div class="arrow">&rarr;</div>
         <div class="flow-item">QR Code / NFC Tag</div>
-        <div class="arrow">→</div>
+        <div class="arrow">&rarr;</div>
         <div class="flow-item">YouFeed Context Page</div>
       </div>
       <div style="height:12px;"></div>
       <div class="flow-grid">
         <div class="flow-item">Voice / Text Feedback</div>
-        <div class="arrow">→</div>
+        <div class="arrow">&rarr;</div>
         <div class="flow-item">Transcription &amp; Structuring</div>
-        <div class="arrow">→</div>
+        <div class="arrow">&rarr;</div>
         <div class="flow-item">InsightGPT Output</div>
       </div>
     </div>
     <div class="card-grid reveal d2">
       <div class="text-card">
-        <h3>Principle 01 · Context-specific</h3>
+        <h3>Principle 01 &middot; Context-specific</h3>
         <p>Each touchpoint corresponds to one clear object, so users need almost no additional explanation or recall.</p>
       </div>
       <div class="text-card">
-        <h3>Principle 02 · Voice-first</h3>
+        <h3>Principle 02 &middot; Voice-first</h3>
         <p>Prioritise "say one sentence" over turning feedback into a long form to fill out.</p>
       </div>
       <div class="text-card">
-        <h3>Principle 03 · Low-friction</h3>
-        <p>No login, no complex hierarchy, no redundant steps — shorten the path from trigger to expression as much as possible.</p>
+        <h3>Principle 03 &middot; Low-friction</h3>
+        <p>No login, no complex hierarchy, no redundant steps &mdash; shorten the path from trigger to expression as much as possible.</p>
       </div>
       <div class="text-card">
-        <h3>Principle 04 · Modular</h3>
+        <h3>Principle 04 &middot; Modular</h3>
         <p>Keep the page structure consistent while allowing content to be dynamically swapped per exhibit, zone, or event.</p>
       </div>
     </div>
@@ -296,7 +296,7 @@
   <!-- UI DESIGN -->
   <section class="section">
     <div class="section-h">Interface Design</div>
-    <p class="summary reveal">The final interface is organised around a few key states — "ready to speak, actively recording, captured, submitted" — rather than stacking features. This keeps attention focused on the action the user actually needs, allowing the page to be understood, used, and closed within seconds.</p>
+    <p class="summary reveal">The final interface is organised around a few key states &mdash; "ready to speak, actively recording, captured, submitted" &mdash; rather than stacking features. This keeps attention focused on the action the user actually needs, allowing the page to be understood, used, and closed within seconds.</p>
     <div class="gallery reveal d1">
       <div class="img-frame">
         <div class="img-placeholder tall">Recording Screen<br><br>Recommended: the recording state page, as the visual centrepiece of the flow</div>
@@ -312,13 +312,13 @@
         <div class="img-frame">
           <div class="img-placeholder medium">Captured Screen</div>
           <img class="img-ui img-ui-captured" src="assets/youfeed/ui-3.png" alt="Captured Screen">
-          <div class="img-note">A lightweight transcription preview builds trust — the user feels the system understood them.</div>
+          <div class="img-note">A lightweight transcription preview builds trust &mdash; the user feels the system understood them.</div>
         </div>
       </div>
       <div class="img-frame">
         <div class="img-placeholder tall">Success Screen</div>
         <img class="img-ui img-ui-success" src="assets/youfeed/ui-4.png" alt="Success Screen">
-        <div class="img-note">The success screen only closes the loop — no additional information is stacked, so there is nothing to decide after submitting.</div>
+        <div class="img-note">The success screen only closes the loop &mdash; no additional information is stacked, so there is nothing to decide after submitting.</div>
       </div>
     </div>
   </section>
@@ -330,7 +330,7 @@
       <div class="bullet">
         <div>
           <strong>The output is a deployable feedback pipeline, not just a page</strong>
-          <p>From exhibit to touchpoint, front-end collection, and back-end insight — this project is more like a system entry point than an isolated UI.</p>
+          <p>From exhibit to touchpoint, front-end collection, and back-end insight &mdash; this project is more like a system entry point than an isolated UI.</p>
         </div>
       </div>
       <div class="bullet">
@@ -341,8 +341,8 @@
       </div>
       <div class="bullet">
         <div>
-          <strong>Simple interface ≠ simple design</strong>
-          <p>The real challenge is not how many features are included — it is how to make expression feel almost effortless in a high-distraction, low-dwell environment.</p>
+          <strong>Simple interface &ne; simple design</strong>
+          <p>The real challenge is not how many features are included &mdash; it is how to make expression feel almost effortless in a high-distraction, low-dwell environment.</p>
         </div>
       </div>
     </div>
@@ -354,7 +354,7 @@
     <a class="next" href="project-uniplus.html">Next: UniPlus</a>
   </div>
 
-  <div class="footer reveal">YouFeed · DI Works · Exhibition Feedback Touchpoint · 2025</div>
+  <div class="footer reveal">YouFeed &middot; DI Works &middot; Exhibition Feedback Touchpoint &middot; 2025</div>
 
 </main>
 
@@ -402,3 +402,4 @@ document.querySelectorAll('.img-frame img').forEach(img=>{
 </script>
 </body>
 </html>
+
