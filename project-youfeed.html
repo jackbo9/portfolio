@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YouFeed — Case Study — Junyan Lu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f3ef;
+    --bg-warm: #ede9e2;
+    --fg: #1a1916;
+    --fg-muted: #888580;
+    --fg-faint: #c8c4be;
+    --accent: #c0392b;
+    --line: rgba(26,25,22,0.11);
+    --font-display: 'Syne', sans-serif;
+    --font-serif: 'Cormorant Garamond', serif;
+    --radius: 8px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-display);
+    font-size: 15px;
+    line-height: 1.8;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Cursor */
+  .cursor { width: 7px; height: 7px; background: var(--accent); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); display: none; }
+  .cursor-ring { width: 28px; height: 28px; border: 1px solid var(--fg); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9998; opacity: 0.3; transition: width 0.18s, height 0.18s, opacity 0.18s; display: none; }
+  @media (hover: hover) and (pointer: fine) {
+    body { cursor: none; }
+    body a, body button { cursor: none; }
+    .cursor, .cursor-ring { display: block; }
+  }
+
+  /* BG decorative words */
+  .case-bg { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+  .bg-word { position: absolute; font-family: var(--font-serif); font-style: italic; font-weight: 300; color: var(--fg); user-select: none; will-change: transform; }
+  .bw1 { top: 6%; right: -1%; font-size: clamp(52px,9vw,116px); opacity: 0.04; }
+  .bw2 { top: 44%; left: 0%; font-size: clamp(34px,5.5vw,82px); opacity: 0.03; }
+  .bw3 { bottom: 8%; right: 5%; font-size: clamp(28px,4.5vw,68px); opacity: 0.03; }
+
+  /* Layout */
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 36px 32px 96px; position: relative; z-index: 1; }
+
+  .top-bar {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 52px; padding-bottom: 20px; border-bottom: 1px solid var(--line);
+  }
+  .back {
+    display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+    color: var(--fg-muted); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s;
+  }
+  .back:hover { color: var(--fg); }
+  .back::before { content: '←'; font-size: 14px; }
+  .case-num { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-faint); }
+
+  /* Hero */
+  .case-label { display: inline-block; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+  .case-title { font-family: var(--font-display); font-weight: 700; font-size: clamp(40px,7vw,86px); letter-spacing: -0.03em; line-height: 0.95; color: var(--fg); }
+  .case-sub { margin-top: 16px; font-family: var(--font-serif); font-size: clamp(18px,2.4vw,26px); color: var(--fg-muted); max-width: 760px; line-height: 1.7; }
+  .meta { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag { border: 1px solid var(--line); padding: 5px 12px; font-size: 12px; color: var(--fg-muted); border-radius: 2px; letter-spacing: 0.03em; }
+
+  /* Sections */
+  .section { margin-top: 60px; padding-top: 24px; border-top: 1px solid var(--line); }
+  .section-h {
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--fg-faint);
+    margin-bottom: 14px; display: flex; align-items: center; gap: 12px;
+  }
+  .section-h::after { content: ''; flex: 1; max-width: 48px; height: 1px; background: var(--line); }
+
+  .summary { font-family: var(--font-serif); font-size: 17px; line-height: 1.9; color: var(--fg); max-width: 860px; margin-top: 12px; }
+  .summary + .summary { margin-top: 12px; }
+
+  /* Images */
+  .img-frame { margin-top: 18px; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--bg-warm); }
+  .img-placeholder {
+    min-height: 280px; padding: 28px; display: grid; place-items: center; text-align: center;
+    color: var(--fg-muted); background: linear-gradient(180deg,rgba(255,255,255,0.56),rgba(237,233,226,0.92));
+    border-bottom: 1px solid var(--line); font-size: 13px; line-height: 1.6;
+  }
+  .img-placeholder.tall { min-height: 420px; }
+  .img-placeholder.medium { min-height: 320px; }
+  .img-frame img { display: none; width: 100%; }
+  .img-frame.has-image img { display: block; }
+  .img-frame.has-image .img-placeholder { display: none; }
+  .img-placeholder.medium + img { height: 320px; object-fit: cover; }
+  .img-placeholder.tall + img { height: 420px; object-fit: contain; padding: 20px; background: linear-gradient(180deg,rgba(255,255,255,0.7),rgba(237,233,226,0.92)); }
+  .img-scene { object-fit: cover; object-position: 68% center; }
+  .img-nfc { object-fit: contain; object-position: center; padding: 12px; background: #f3f0ea; }
+  .img-ui { object-fit: cover; object-position: center top; background: #d8d2c7; }
+  .img-ui-main { object-position: center 18%; }
+  .img-ui-prompt, .img-ui-captured, .img-ui-success { object-position: center 10%; }
+  .img-note { padding: 10px 14px; font-size: 12px; color: var(--fg-muted); background: #f9f7f3; letter-spacing: 0.02em; line-height: 1.6; }
+
+  /* Grids */
+  .gallery { margin-top: 18px; display: grid; gap: 14px; }
+  .grid-two { margin-top: 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .card-grid { margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+  .text-card { border: 1px solid var(--line); border-radius: var(--radius); background: #faf8f4; padding: 18px; }
+  .text-card h3 { font-size: 15px; font-weight: 600; letter-spacing: 0.04em; margin-bottom: 8px; }
+  .text-card p { color: var(--fg-muted); font-size: 14px; line-height: 1.75; }
+
+  /* Bullets */
+  .bullets { margin-top: 18px; display: grid; gap: 12px; }
+  .bullet { display: grid; grid-template-columns: 14px 1fr; gap: 12px; align-items: start; }
+  .bullet::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); margin-top: 10px; }
+  .bullet strong { display: block; margin-bottom: 2px; color: var(--fg); }
+  .bullet p { color: var(--fg-muted); font-size: 14px; line-height: 1.7; }
+
+  /* Flow */
+  .flow { margin-top: 18px; border: 1px solid var(--line); border-radius: var(--radius); background: #faf8f4; padding: 18px; }
+  .flow-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 12px; align-items: center; }
+  .flow-item {
+    min-height: 74px; border: 1px solid var(--line); border-radius: 6px;
+    background: var(--bg); display: grid; place-items: center;
+    text-align: center; padding: 12px; font-size: 13px; color: var(--fg-muted);
+  }
+  .arrow { text-align: center; color: var(--fg-faint); font-size: 18px; }
+
+  /* Case nav */
+  .case-nav {
+    margin-top: 80px; padding-top: 32px; border-top: 1px solid var(--line);
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+  }
+  .case-nav a { text-decoration: none; color: var(--fg-muted); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+  .case-nav a:hover { color: var(--fg); }
+  .case-nav .prev::before { content: '← '; }
+  .case-nav .next::after { content: ' →'; }
+
+  .footer { margin-top: 20px; color: var(--fg-faint); font-size: 12px; letter-spacing: 0.04em; }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .d1 { transition-delay: 0.08s; }
+  .d2 { transition-delay: 0.16s; }
+
+  @media (max-width: 760px) {
+    .wrap { padding: 24px 18px 72px; }
+    .case-title { font-size: clamp(36px,10vw,56px); }
+    .grid-two, .card-grid { grid-template-columns: 1fr; }
+    .flow-grid { grid-template-columns: 1fr; }
+    .arrow { transform: rotate(90deg); }
+    .img-placeholder.medium + img, .img-placeholder.tall + img { height: auto; padding: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<div class="case-bg" aria-hidden="true">
+  <span class="bg-word bw1" data-speed="0.14">Case Study</span>
+  <span class="bg-word bw2" data-speed="0.2">Voice-first</span>
+  <span class="bg-word bw3" data-speed="0.1">Touchpoint</span>
+</div>
+
+<main class="wrap">
+
+  <div class="top-bar reveal">
+    <a class="back" href="index.html#work">All Work</a>
+    <span class="case-num">Case Study 01</span>
+  </div>
+
+  <div class="case-hero">
+    <span class="case-label reveal">UX Design · Product Design · Exhibition Touchpoint</span>
+    <h1 class="case-title reveal">YouFeed</h1>
+    <p class="case-sub reveal">Redesigning an exhibition feedback touchpoint to be voice-first and low-friction — connecting physical presence back into an analysable digital feedback loop.</p>
+    <div class="meta reveal d1">
+      <span class="tag">Internship Project</span>
+      <span class="tag">Voice-first</span>
+      <span class="tag">Context-aware</span>
+      <span class="tag">Touchpoint Design</span>
+    </div>
+  </div>
+
+  <!-- BACKGROUND -->
+  <section class="section">
+    <div class="section-h">Background</div>
+    <p class="summary reveal">This project originated from a real exhibition scenario I observed during my internship at DI Works. The original concept comprised two components: YouFeed handling front-end feedback collection — allowing visitors to reach a mobile page bound to a specific exhibit via QR code or NFC — and InsightGPT handling back-end transcription, analysis, and structuring, converting scattered voice feedback into actionable insights.</p>
+    <p class="summary reveal d1">As an intern, I focused on the front-end mobile experience of YouFeed. The goal was not to build a more complete form — it was to design a touchpoint genuinely suited to the exhibition environment: short dwell time, scarce attention, strong contextual dependency, yet still capable of capturing immediate, spontaneous reactions to the exhibit in front of you.</p>
+  </section>
+
+  <!-- OPPORTUNITY -->
+  <section class="section">
+    <div class="section-h">Scenario &amp; Opportunity</div>
+    <p class="summary reveal">In the Giacomini exhibition pilot, different NFC tags were deployed near different exhibits or display areas. Once triggered, the page had to immediately communicate to the user "what you are rating right now" — without creating the psychological burden of "I need to complete a task."</p>
+    <div class="grid-two reveal d1">
+      <div class="img-frame">
+        <div class="img-placeholder medium">Exhibition stand photo<br><br>Recommended: Giacomini booth or exhibit environment</div>
+        <img class="img-scene" src="assets/youfeed/background.png" alt="Exhibition context">
+        <div class="img-note">Illustrates that feedback is not a detached online action — it is an extension of the live exhibition experience.</div>
+      </div>
+      <div class="img-frame">
+        <div class="img-placeholder medium">NFC / QR touchpoint photo<br><br>Recommended: tag, stand card, or touchpoint diagram</div>
+        <img class="img-nfc" src="assets/youfeed/nfc.jpg" alt="NFC touchpoint">
+        <div class="img-note">Shows the trigger mechanic and the mental model: tap / scan → immediately enter feedback.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHALLENGES -->
+  <section class="section">
+    <div class="section-h">Design Challenges</div>
+    <div class="bullets reveal">
+      <div class="bullet">
+        <div>
+          <strong>Extremely short attention window</strong>
+          <p>Exhibition environments are high-flow. Users typically give an interface only a few seconds to understand before moving on.</p>
+        </div>
+      </div>
+      <div class="bullet">
+        <div>
+          <strong>Feedback must be tightly bound to its object</strong>
+          <p>Whichever tag a user scans, they should immediately understand what they are evaluating — avoiding the feeling of a generic questionnaire.</p>
+        </div>
+      </div>
+      <div class="bullet">
+        <div>
+          <strong>Voice input needs to feel effortless</strong>
+          <p>The experience should encourage natural expression, while acknowledging that users in public spaces are not always willing to speak at length.</p>
+        </div>
+      </div>
+      <div class="bullet">
+        <div>
+          <strong>The page structure must be templatable</strong>
+          <p>Content will change per exhibit, but the structural and interaction logic must remain unified, reusable, and easy to deploy.</p>
+        </div>
+      </div>
+    </div>
+    <div class="card-grid reveal d1">
+      <div class="text-card">
+        <h3>YouFeed</h3>
+        <p>The front-end touchpoint layer. Users enter a context-specific page bound to the exhibit via QR code or NFC, and quickly leave voice or text feedback.</p>
+      </div>
+      <div class="text-card">
+        <h3>InsightGPT</h3>
+        <p>The back-end insight layer. The system transcribes and analyses content, helping teams extract actionable insights from high-frequency, fragmented feedback.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SYSTEM LOGIC -->
+  <section class="section">
+    <div class="section-h">System Logic</div>
+    <p class="summary reveal">This case study is not about designing a single page — it is about connecting the physical touchpoint, front-end interaction, and back-end insight pipeline into one coherent chain. For a portfolio, this matters more than showing isolated UI, because it articulates the conditions under which the design works and how it would be deployed.</p>
+    <div class="flow reveal d1">
+      <div class="flow-grid">
+        <div class="flow-item">Exhibit / Display Area</div>
+        <div class="arrow">→</div>
+        <div class="flow-item">QR Code / NFC Tag</div>
+        <div class="arrow">→</div>
+        <div class="flow-item">YouFeed Context Page</div>
+      </div>
+      <div style="height:12px;"></div>
+      <div class="flow-grid">
+        <div class="flow-item">Voice / Text Feedback</div>
+        <div class="arrow">→</div>
+        <div class="flow-item">Transcription &amp; Structuring</div>
+        <div class="arrow">→</div>
+        <div class="flow-item">InsightGPT Output</div>
+      </div>
+    </div>
+    <div class="card-grid reveal d2">
+      <div class="text-card">
+        <h3>Principle 01 · Context-specific</h3>
+        <p>Each touchpoint corresponds to one clear object, so users need almost no additional explanation or recall.</p>
+      </div>
+      <div class="text-card">
+        <h3>Principle 02 · Voice-first</h3>
+        <p>Prioritise "say one sentence" over turning feedback into a long form to fill out.</p>
+      </div>
+      <div class="text-card">
+        <h3>Principle 03 · Low-friction</h3>
+        <p>No login, no complex hierarchy, no redundant steps — shorten the path from trigger to expression as much as possible.</p>
+      </div>
+      <div class="text-card">
+        <h3>Principle 04 · Modular</h3>
+        <p>Keep the page structure consistent while allowing content to be dynamically swapped per exhibit, zone, or event.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- UI DESIGN -->
+  <section class="section">
+    <div class="section-h">Interface Design</div>
+    <p class="summary reveal">The final interface is organised around a few key states — "ready to speak, actively recording, captured, submitted" — rather than stacking features. This keeps attention focused on the action the user actually needs, allowing the page to be understood, used, and closed within seconds.</p>
+    <div class="gallery reveal d1">
+      <div class="img-frame">
+        <div class="img-placeholder tall">Recording Screen<br><br>Recommended: the recording state page, as the visual centrepiece of the flow</div>
+        <img class="img-ui img-ui-main" src="assets/youfeed/ui-1.png" alt="Recording Screen">
+        <div class="img-note">The recording page is the most critical moment in the entire experience.</div>
+      </div>
+      <div class="grid-two">
+        <div class="img-frame">
+          <div class="img-placeholder medium">Prompt Screen</div>
+          <img class="img-ui img-ui-prompt" src="assets/youfeed/ui-2.png" alt="Prompt Screen">
+          <div class="img-note">Context title and primary CTA let the user understand "what I am giving feedback on" within seconds.</div>
+        </div>
+        <div class="img-frame">
+          <div class="img-placeholder medium">Captured Screen</div>
+          <img class="img-ui img-ui-captured" src="assets/youfeed/ui-3.png" alt="Captured Screen">
+          <div class="img-note">A lightweight transcription preview builds trust — the user feels the system understood them.</div>
+        </div>
+      </div>
+      <div class="img-frame">
+        <div class="img-placeholder tall">Success Screen</div>
+        <img class="img-ui img-ui-success" src="assets/youfeed/ui-4.png" alt="Success Screen">
+        <div class="img-note">The success screen only closes the loop — no additional information is stacked, so there is nothing to decide after submitting.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUTCOMES -->
+  <section class="section">
+    <div class="section-h">Outcomes &amp; Reflections</div>
+    <div class="bullets reveal">
+      <div class="bullet">
+        <div>
+          <strong>The output is a deployable feedback pipeline, not just a page</strong>
+          <p>From exhibit to touchpoint, front-end collection, and back-end insight — this project is more like a system entry point than an isolated UI.</p>
+        </div>
+      </div>
+      <div class="bullet">
+        <div>
+          <strong>Physical deployment details directly determine digital experience success</strong>
+          <p>Touchpoint format, placement, exhibition noise, and dwell rhythm all affect whether users are willing to leave feedback in the first place.</p>
+        </div>
+      </div>
+      <div class="bullet">
+        <div>
+          <strong>Simple interface ≠ simple design</strong>
+          <p>The real challenge is not how many features are included — it is how to make expression feel almost effortless in a high-distraction, low-dwell environment.</p>
+        </div>
+      </div>
+    </div>
+    <p class="summary reveal d1">Image placeholders are retained throughout so you can progressively replace them with real exhibition photos, touchpoint photos, and high-fidelity UI screens without disrupting the overall layout consistency.</p>
+  </section>
+
+  <div class="case-nav reveal">
+    <a class="prev" href="index.html#work">All Work</a>
+    <a class="next" href="project-uniplus.html">Next: UniPlus</a>
+  </div>
+
+  <div class="footer reveal">YouFeed · DI Works · Exhibition Feedback Touchpoint · 2025</div>
+
+</main>
+
+<script>
+// Cursor
+const cursor = document.getElementById('cursor');
+const ring   = document.getElementById('cursorRing');
+const hasFine = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+let mx=0,my=0,rx=0,ry=0;
+if (hasFine && cursor && ring) {
+  document.addEventListener('mousemove', e => {
+    mx=e.clientX; my=e.clientY;
+    cursor.style.transform=`translate(calc(${mx}px - 50%),calc(${my}px - 50%))`;
+  });
+  (function anim(){
+    rx+=(mx-rx)*0.1; ry+=(my-ry)*0.1;
+    ring.style.transform=`translate(calc(${rx}px - 50%),calc(${ry}px - 50%))`;
+    requestAnimationFrame(anim);
+  })();
+  document.querySelectorAll('a,button').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{ring.style.width='44px';ring.style.height='44px';ring.style.opacity='0.18';});
+    el.addEventListener('mouseleave',()=>{ring.style.width='28px';ring.style.height='28px';ring.style.opacity='0.3';});
+  });
+}
+
+// Parallax bg words
+window.addEventListener('scroll', ()=>{
+  document.querySelectorAll('.bg-word').forEach(el=>{
+    el.style.transform=`translateY(${window.scrollY*parseFloat(el.dataset.speed||'0.14')}px)`;
+  });
+},{passive:true});
+
+// Reveal
+const io = new IntersectionObserver(entries=>entries.forEach(e=>{
+  if(e.isIntersecting) e.target.classList.add('visible');
+}),{threshold:0.07,rootMargin:'0px 0px -24px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// Image load fallback
+document.querySelectorAll('.img-frame img').forEach(img=>{
+  const sync=()=>{ if(img.naturalWidth>0) img.parentElement.classList.add('has-image'); };
+  if(img.complete) sync();
+  img.addEventListener('load',sync);
+});
+</script>
+</body>
+</html>
